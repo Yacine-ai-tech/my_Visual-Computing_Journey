@@ -1,0 +1,11 @@
+# Common dependencies for all projects
+# Individual projects may have their own requirements.txt with specific versions
+
+opencv-python>=4.5.0
+numpy>=1.19.0
+matplotlib>=3.3.0
+
+# Optional but useful
+# scikit-image  # For additional image processing
+# pillow  # Alternative image library
+# scipy  # Scientific computing utilities
