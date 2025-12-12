@@ -10,7 +10,10 @@ img = cv2.imread('../morphological_operations/cameraman.tif', 0)
 
 if img is None:
     print("Error: Could not load image")
-    exit()
+    print("Make sure cameraman.tif is in ../morphological_operations/")
+    # Exit gracefully - still learning proper error handling
+    import sys
+    sys.exit(1)
 
 # Method 1: Canny Edge Detection
 # This is supposed to be the most popular edge detector
