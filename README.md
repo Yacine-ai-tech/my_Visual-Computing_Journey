@@ -30,6 +30,39 @@ Right now I'm exploring:
 - Image segmentation techniques
 - Color space transformations
 
+## Long-term Roadmap
+
+This repository is structured to grow with my learning journey:
+
+**Phase 1 (Current): Classical Computer Vision** ✅
+- OpenCV fundamentals
+- Image processing operations
+- Edge and contour detection
+- Feature detection
+
+**Phase 2 (Next): Intermediate Techniques** 🔄
+- Object detection (Haar cascades, HOG)
+- Video processing and tracking
+- Camera calibration
+- Template matching
+
+**Phase 3 (Future): Deep Learning** 🎯
+- CNNs for image classification
+- Modern object detection (YOLO, R-CNN family)
+- Semantic segmentation
+- Transfer learning
+
+**Phase 4 (Advanced): Cutting-Edge Models** 🚀
+- Vision Transformers (ViT)
+- Vision Language Models (CLIP, BLIP, LLaVA)
+- Foundation models (SAM, DINO)
+- Neural rendering (NeRF)
+- Multimodal AI
+
+*The repository structure is designed to scale from basics to advanced topics naturally.*
+
+**📖 See [SCALABILITY_GUIDE.md](SCALABILITY_GUIDE.md) for details on how this repository accommodates progression from basic operations to VLMs, video processing, and neural rendering.**
+
 ## Projects in This Repo
 
 | Project | Difficulty | What I Learned | Status |
@@ -48,8 +81,9 @@ Right now I'm exploring:
 ├── 📄 RESOURCES.md                ← Books, courses, tutorials I'm using
 ├── 📄 PROJECTS_INDEX.md           ← All projects organized by difficulty
 ├── 📄 DEBUGGING_NOTES.md          ← Common bugs I've encountered
-├── 📄 TODO.md                     ← Future plans and ideas
+├── 📄 TODO.md                     ← Future plans and ideas (includes VLMs, video processing)
 ├── 📄 SETUP_GUIDE.md              ← How to get started
+├── 📄 SCALABILITY_GUIDE.md        ← How this repo scales from basics to advanced topics
 ├── 📁 mouse_draw_circle/          ← Project 1: Interactive drawing
 ├── 📁 morphological_operations/   ← Project 2: Image transformations
 ├── 📁 Contour_detection/          ← Project 3: Boundary detection
@@ -99,7 +133,11 @@ Planning to work on:
 - [ ] Object tracking
 - [ ] Face detection with Haar cascades
 - [ ] Document scanner (practical project!)
-- [ ] Maybe some basic deep learning with YOLO?
+- [ ] Video processing fundamentals
+- [ ] Deep learning for CV (YOLO, etc.)
+- [ ] Eventually: Vision Transformers and VLMs
+
+*See [TODO.md](TODO.md) for the complete roadmap including advanced topics like Vision Language Models, Neural Rendering, and Foundation Models.*
 
 Full TODO list in [TODO.md](TODO.md).
 

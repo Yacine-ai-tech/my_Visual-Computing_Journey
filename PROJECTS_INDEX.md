@@ -60,6 +60,43 @@ Comparing different edge detection approaches. Canny is usually best for clean e
 
 ---
 
+## Advanced Projects ⭐⭐⭐ (Planned)
+
+### Future Advanced Topics
+
+As the journey progresses, these advanced areas will be explored:
+
+**Deep Learning & Neural Networks**
+- CNN architectures for image classification
+- Object detection with modern models (YOLO, R-CNN family)
+- Semantic and instance segmentation
+- Vision Transformers
+
+**Video Processing**
+- Video analysis and temporal modeling
+- Multi-object tracking systems
+- Action recognition
+- Real-time video analytics
+
+**Multimodal AI**
+- Vision Language Models (CLIP, BLIP, LLaVA)
+- Image captioning and visual question answering
+- Cross-modal retrieval
+
+**3D Vision & Neural Rendering**
+- NeRF and 3D Gaussian Splatting
+- Depth estimation
+- 3D reconstruction
+
+**Foundation Models**
+- SAM (Segment Anything)
+- DINO family models
+- Zero-shot learning approaches
+
+*Note: This repository structure is designed to scale from classical CV fundamentals to cutting-edge deep learning and multimodal approaches. Each new complexity level will be added as understanding progresses.*
+
+---
+
 ## Skills Progress Tracker
 
 ### Completed ✅
@@ -87,6 +124,11 @@ Comparing different edge detection approaches. Canny is usually best for clean e
 - [ ] Camera calibration
 - [ ] Video processing
 - [ ] Deep learning approaches (YOLO, Mask R-CNN)
+- [ ] Vision Transformers (ViT)
+- [ ] Vision Language Models (CLIP, BLIP, LLaVA)
+- [ ] Foundation models (SAM, DINO)
+- [ ] Neural rendering (NeRF, 3D Gaussian Splatting)
+- [ ] Multimodal AI and cross-modal understanding
 
 ---
 

@@ -55,6 +55,16 @@ Things I want to work on next. Keeping this updated as I progress through my CV 
 - [ ] YOLO for object detection
 - [ ] Image classification project
 - [ ] Semantic segmentation
+- [ ] Object detection models (R-CNN, Fast R-CNN, Faster R-CNN)
+- [ ] Instance segmentation (Mask R-CNN)
+
+### Video Processing & Analysis
+- [ ] Advanced video processing techniques
+- [ ] Multi-object tracking (SORT, DeepSORT)
+- [ ] Action recognition in videos
+- [ ] Video segmentation
+- [ ] Temporal modeling with LSTMs/Transformers
+- [ ] Real-time video analytics pipelines
 
 ### Advanced Topics
 - [ ] Optical flow
@@ -62,6 +72,26 @@ Things I want to work on next. Keeping this updated as I progress through my CV 
 - [ ] 3D reconstruction basics
 - [ ] Face recognition (not just detection)
 - [ ] OCR (Optical Character Recognition)
+- [ ] Vision Transformers (ViT)
+- [ ] Attention mechanisms in vision
+- [ ] Self-supervised learning for vision
+
+### Cutting-Edge Models & Techniques
+- [ ] Vision Language Models (VLMs)
+  - [ ] CLIP (OpenAI)
+  - [ ] BLIP/BLIP-2
+  - [ ] LLaVA
+  - [ ] Understanding multimodal architectures
+- [ ] Diffusion Models for CV
+  - [ ] Stable Diffusion
+  - [ ] Image generation and editing
+- [ ] Foundation Models
+  - [ ] SAM (Segment Anything Model)
+  - [ ] DINO/DINOv2
+  - [ ] Grounding DINO
+- [ ] Neural Rendering
+  - [ ] NeRF (Neural Radiance Fields)
+  - [ ] 3D Gaussian Splatting
 
 ### Practical Projects
 - [ ] License plate detector
