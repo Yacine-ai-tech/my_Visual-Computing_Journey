@@ -286,7 +286,7 @@ def demonstrate_corner_detection(img):
     
     img_shitomasi = img.copy()
     if corners is not None:
-        corners = np.int0(corners)
+        corners = corners.astype(np.int32)
         for corner in corners:
             x, y = corner.ravel()
             cv2.circle(img_shitomasi, (x, y), 5, (0, 0, 255), -1)
