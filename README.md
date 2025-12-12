@@ -1,5 +1,10 @@
 # My Visual Computing Journey 🖼️👁️
 
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![OpenCV](https://img.shields.io/badge/OpenCV-4.x-green)](https://opencv.org/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Active%20Learning-orange)]()
+
 Hey there! This repo documents my journey learning computer vision and image processing. Started this in early 2024 as I realized how important CV is becoming in tech. 
 
 ## Why I'm Learning This
@@ -16,29 +21,58 @@ This is roughly in the order I learned things (spoiler: I didn't plan this perfe
 
 3. **Contour Detection** - This was harder than I expected! Took me a while to get the preprocessing right (blur + threshold). But once it clicked, I could see how powerful it is.
 
+4. **Edge Detection** - Compared Canny, Sobel, and Laplacian methods. Each has its strengths depending on the use case.
+
 ## Current Focus
 
 Right now I'm exploring:
-- Edge detection techniques (Canny, Sobel)
-- Feature detection and matching
-- Image segmentation
+- Feature detection and matching (SIFT, ORB)
+- Image segmentation techniques
+- Color space transformations
 
 ## Projects in This Repo
 
-| Project | Difficulty | What I Learned |
-|---------|-----------|----------------|
-| mouse_draw_circle | ⭐ Beginner | OpenCV basics, event handling |
-| morphological_operations | ⭐⭐ Intermediate | Morphological transforms, kernel operations |
-| Contour_detection | ⭐⭐ Intermediate | Image preprocessing, contour detection |
+| Project | Difficulty | What I Learned | Status |
+|---------|-----------|----------------|--------|
+| mouse_draw_circle | ⭐ Beginner | OpenCV basics, event handling | ✅ Complete |
+| morphological_operations | ⭐⭐ Intermediate | Morphological transforms, kernel operations | ✅ Complete |
+| Contour_detection | ⭐⭐ Intermediate | Image preprocessing, contour detection | ✅ Complete |
+| edge_detection | ⭐⭐ Intermediate | Canny, Sobel, Laplacian methods | ✅ Complete |
 
-## Setup
+## Repository Structure
 
-Most projects use similar dependencies:
-```bash
-pip install opencv-python numpy matplotlib
+```
+📁 my_Visual-Computing_Journey/
+├── 📄 README.md                    ← You are here
+├── 📄 LEARNING_JOURNAL.md         ← My learning timeline and reflections
+├── 📄 RESOURCES.md                ← Books, courses, tutorials I'm using
+├── 📄 PROJECTS_INDEX.md           ← All projects organized by difficulty
+├── 📄 DEBUGGING_NOTES.md          ← Common bugs I've encountered
+├── 📄 TODO.md                     ← Future plans and ideas
+├── 📄 SETUP_GUIDE.md              ← How to get started
+├── 📁 mouse_draw_circle/          ← Project 1: Interactive drawing
+├── 📁 morphological_operations/   ← Project 2: Image transformations
+├── 📁 Contour_detection/          ← Project 3: Boundary detection
+├── 📁 edge_detection/             ← Project 4: Edge detection comparison
+└── 📁 experiments/                ← Quick tests and experiments
 ```
 
-Check individual project folders for specific requirements.
+## Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/Yacine-ai-tech/my_Visual-Computing_Journey.git
+cd my_Visual-Computing_Journey
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Try a project
+cd mouse_draw_circle
+python draw_circle_onClick.py
+```
+
+For detailed setup instructions, see [SETUP_GUIDE.md](SETUP_GUIDE.md).
 
 ## Resources I'm Using
 
@@ -47,6 +81,8 @@ Check individual project folders for specific requirements.
 - PyImageSearch blog - Adrian's tutorials are gold
 - Stack Overflow when I'm stuck (which is often lol)
 
+See [RESOURCES.md](RESOURCES.md) for the complete list with links and notes.
+
 ## Notes to Self
 
 - Remember to always convert BGR to RGB when using matplotlib!
@@ -54,16 +90,35 @@ Check individual project folders for specific requirements.
 - cv2.waitKey(0) waits indefinitely, cv2.waitKey(1) waits 1ms
 - Contours work on binary images, so threshold first
 
+More debugging notes in [DEBUGGING_NOTES.md](DEBUGGING_NOTES.md).
+
 ## What's Next?
 
 Planning to work on:
 - [ ] Feature matching (SIFT/ORB)
 - [ ] Object tracking
 - [ ] Face detection with Haar cascades
+- [ ] Document scanner (practical project!)
 - [ ] Maybe some basic deep learning with YOLO?
 
-Feel free to check out the code. I'm still learning, so if you spot mistakes or have suggestions, let me know!
+Full TODO list in [TODO.md](TODO.md).
+
+## Contributing
+
+This is my personal learning repository, but if you spot mistakes or have suggestions for improvement, feel free to open an issue! I'm always looking to learn better approaches.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## Connect
+
+If you're also learning computer vision or have tips to share, I'd love to connect! Feel free to reach out.
 
 ---
 
 *Last updated: December 2024*
+
+**Note**: This is a learning repository. Code quality varies as I progress. Early projects are simpler, later ones show improved understanding. That's the point of a journey! 🚀
+
+Feel free to check out the code. I'm still learning, so if you spot mistakes or have suggestions, let me know!
