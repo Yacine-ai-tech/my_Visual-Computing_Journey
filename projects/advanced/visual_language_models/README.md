@@ -285,7 +285,7 @@ class SpatialFeatureExtractor:
 |--------|-----------------|-----------------|
 | **Vision** | OpenCV features | Vision Transformers (ViT) |
 | **Language** | Rule-based | Large Language Models (LLMs) |
-| **Training** | None (hand-crafted) | Billions of image-text pairs |
+| *Training* | None (hand-crafted) | Billions of image-text pairs |
 | **Vocabulary** | ~50 words | Millions of tokens |
 | **Understanding** | Basic (color, shape) | Deep semantic understanding |
 | **Reasoning** | Simple rules | Complex multi-step reasoning |

@@ -189,7 +189,7 @@ kernel_size = (5, 5)
 # Minimum contour area to filter small detections
 min_area = 500
 
-# Color range tuning
+# Color range tuning for HSV detection
 # Wider range: More detections, more false positives
 # Narrower range: Fewer false positives, may miss objects
 ```

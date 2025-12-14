@@ -96,7 +96,7 @@ Each cell outputs:
 ```
 - Bounding boxes: B × (x, y, w, h, confidence)
 - Class probabilities: C classes
-- Total: B × 5 + C values per cell
+- Total: (B × 5) + C values per cell
 ```
 
 For 7×7 grid, 2 boxes, 20 classes:

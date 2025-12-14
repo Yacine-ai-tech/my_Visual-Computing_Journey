@@ -304,7 +304,7 @@ The code can be extended with:
 
 ## References
 
-- Pizer, S. M., et al. (1987). Adaptive histogram equalization and its variations
-- Gonzalez, R. C., & Woods, R. E. (2018). Digital Image Processing
-- Zuiderveld, K. (1994). Contrast Limited Adaptive Histogram Equalization
+- Pizer, S. M., et al. (1987). Adaptive histogram equalization and its variations. Computer Vision, Graphics, and Image Processing, 39(3), 355-368
+- Gonzalez, R. C., & Woods, R. E. (2018). Digital Image Processing (4th ed.). Pearson
+- Zuiderveld, K. (1994). Contrast Limited Adaptive Histogram Equalization. Graphics Gems IV, Academic Press, 474-485
 - OpenCV Documentation: Histograms

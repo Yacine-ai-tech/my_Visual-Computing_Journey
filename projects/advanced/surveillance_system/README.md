@@ -265,6 +265,8 @@ def check_zone_violations(tracks, zones):
 ### Event Logging
 
 ```python
+from datetime import datetime
+
 def log_event(event_type, details):
     event = {
         'timestamp': datetime.now(),
