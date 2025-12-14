@@ -106,6 +106,52 @@ Contour analysis and boundary detection
 - Contour hierarchy analysis
 - Bounding box extraction
 
+### 🚀 Advanced Projects
+
+#### **YOLO Object Detection**
+YOLO-style detection implementation
+- Grid-based detection approach (7x7 grid)
+- Non-maximum suppression (NMS)
+- Multi-class object detection
+- IOU calculation and filtering
+- Real-time detection simulation
+- Performance comparison across grid sizes
+
+#### **Real-Time Video Detection**
+High-performance real-time detection system
+- Multiple detection methods (color, motion, cascade)
+- FPS monitoring and optimization
+- Background subtraction (MOG2)
+- Performance analysis and benchmarking
+- Optimized for 30+ FPS processing
+
+#### **Visual Language Models (VLM)**
+Educational VLM demonstration
+- Multimodal feature extraction
+- Image captioning generation
+- Visual Question Answering (VQA)
+- Visual reasoning tasks
+- Color, shape, and spatial analysis
+- Demonstrates CLIP/BLIP concepts
+
+#### **Document Processing**
+Complete document analysis pipeline
+- Document detection and extraction
+- Perspective correction and deskewing
+- Text region detection
+- Table extraction
+- Layout analysis (headers, columns, footers)
+- OCR-ready preprocessing
+
+#### **Surveillance System**
+Comprehensive real-time surveillance
+- Motion detection with multiple sensitivity levels
+- Multi-object tracking with unique IDs
+- Restricted zone monitoring
+- Event logging and alerting
+- Performance monitoring (FPS, detections)
+- Background subtraction and face detection
+
 ### 🎨 Interactive Tools
 
 #### **Mouse Drawing**
@@ -166,6 +212,26 @@ python histogram_demo.py
 # Geometric Transforms
 cd projects/image_processing/geometric_transforms
 python geometric_transforms.py
+
+# YOLO Detection
+cd projects/advanced/yolo_detection
+python yolo_object_detection.py
+
+# Real-Time Video
+cd projects/advanced/real_time_video
+python realtime_detection.py
+
+# Visual Language Models
+cd projects/advanced/visual_language_models
+python vlm_demo.py
+
+# Document Processing
+cd projects/advanced/document_processing
+python document_analyzer.py
+
+# Surveillance System
+cd projects/advanced/surveillance_system
+python surveillance_demo.py
 ```
 
 ## Project Structure
@@ -184,6 +250,12 @@ projects/
 │   ├── object_detection/          # Color, background subtraction
 │   ├── face_recognition/          # Haar cascades, detection
 │   └── contour_detection/         # Boundary analysis
+├── advanced/
+│   ├── yolo_detection/            # YOLO-style object detection
+│   ├── real_time_video/           # High-performance video processing
+│   ├── visual_language_models/    # VLM and multimodal AI
+│   ├── document_processing/       # Document analysis pipeline
+│   └── surveillance_system/       # Complete surveillance solution
 ├── interactive/
 │   └── mouse_draw_circle/         # Mouse event handling
 └── experiments/                    # Experimental code
@@ -202,6 +274,11 @@ projects/
 - ✅ Face detection
 - ✅ Advanced filtering techniques
 - ✅ Morphological operations
+- ✅ YOLO-style object detection
+- ✅ Real-time video processing
+- ✅ Visual language models (VLM)
+- ✅ Document processing and OCR prep
+- ✅ Surveillance systems
 
 ### Educational Value
 - 📚 Detailed inline comments explaining algorithms
