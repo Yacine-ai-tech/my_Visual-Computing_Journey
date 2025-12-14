@@ -2,6 +2,13 @@
 
 A comprehensive collection of computer vision, image processing, and visual computing projects using OpenCV and Python. This repository covers all major areas of visual computing with functional, well-documented implementations.
 
+## 🎯 Two Implementations Available
+
+**Educational/Demo** - Self-contained, runs immediately, teaches concepts
+**Production** - Industry-standard models, real datasets, deployment-ready
+
+See `projects/advanced/README_PRODUCTION.md` for production implementations.
+
 ## Overview
 
 This repository contains extensive implementations of visual computing techniques, from basic image processing to advanced computer vision algorithms. Each project includes detailed documentation, working code, and visualizations.
@@ -108,14 +115,19 @@ Contour analysis and boundary detection
 
 ### 🚀 Advanced Projects
 
+**Note**: Each advanced project has two implementations:
+- **Educational** (`*_demo.py`) - Self-contained, synthetic data
+- **Production** (`production_*.py`) - Industry models, real datasets
+
+See `projects/advanced/README_PRODUCTION.md` for production setup.
+
 #### **YOLO Object Detection**
 YOLO-style detection implementation
-- Grid-based detection approach (7x7 grid)
-- Non-maximum suppression (NMS)
-- Multi-class object detection
-- IOU calculation and filtering
+- **Educational**: Grid-based detection approach (7x7 grid), NMS, IOU calculation
+- **Production**: Ultralytics YOLOv8, pre-trained COCO models, 100+ FPS on GPU
 - Real-time detection simulation
 - Performance comparison across grid sizes
+- Export to ONNX, TensorRT, CoreML
 
 #### **Real-Time Video Detection**
 High-performance real-time detection system
@@ -136,9 +148,9 @@ Educational VLM demonstration
 
 #### **Document Processing**
 Complete document analysis pipeline
-- Document detection and extraction
+- **Educational**: Document detection, perspective correction, text region detection
+- **Production**: Tesseract/EasyOCR, 100+ languages, JSON export
 - Perspective correction and deskewing
-- Text region detection
 - Table extraction
 - Layout analysis (headers, columns, footers)
 - OCR-ready preprocessing
@@ -171,14 +183,28 @@ Python 3.8+
 ```
 
 ### Installation
+
+**For Educational/Demo projects**:
 ```bash
 git clone https://github.com/Yacine-ai-tech/my_Visual-Computing_Journey.git
 cd my_Visual-Computing_Journey
 pip install -r requirements.txt
 ```
 
+**For Production projects** (requires GPU recommended):
+```bash
+# Install production dependencies
+pip install -r requirements_production.txt
+
+# For GPU support (CUDA 11.8+)
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+```
+
+See `projects/advanced/README_PRODUCTION.md` for detailed production setup.
+
 ### Quick Start
-Navigate to any project directory and run the Python script:
+
+**Educational/Demo Projects** (self-contained, no external dependencies):
 
 ```bash
 # Image Segmentation
@@ -213,7 +239,7 @@ python histogram_demo.py
 cd projects/image_processing/geometric_transforms
 python geometric_transforms.py
 
-# YOLO Detection
+# YOLO Detection (Educational)
 cd projects/advanced/yolo_detection
 python yolo_object_detection.py
 
@@ -223,6 +249,28 @@ python realtime_detection.py
 
 # Visual Language Models
 cd projects/advanced/visual_language_models
+python vlm_demo.py
+
+# Document Processing (Educational)
+cd projects/advanced/document_processing
+python document_analyzer.py
+
+# Surveillance System
+cd projects/advanced/surveillance_system
+python surveillance_demo.py
+```
+
+**Production Projects** (requires external models):
+
+```bash
+# YOLO with Ultralytics YOLOv8 (GPU recommended)
+cd projects/advanced/yolo_detection
+python production_yolo.py
+
+# Document OCR with Tesseract/EasyOCR
+cd projects/advanced/document_processing
+python production_ocr.py
+```
 python vlm_demo.py
 
 # Document Processing
