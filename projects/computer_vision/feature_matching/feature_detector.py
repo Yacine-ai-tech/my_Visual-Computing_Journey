@@ -1,7 +1,16 @@
 """
-Feature Detection and Matching
-Implements multiple feature detection algorithms (SIFT, ORB, AKAZE, BRISK)
-and demonstrates feature matching between images
+Feature Detection and Matching - The Foundation of Computer Vision
+
+This project was fascinating to build! Feature detection is how computers "see" and 
+understand images. Instead of looking at every pixel, we identify interesting points
+(corners, edges, blobs) that are distinctive and can be reliably found even when the
+image is rotated, scaled, or viewed from a different angle.
+
+I implemented multiple algorithms (SIFT, ORB, AKAZE, BRISK) to understand their
+trade-offs. SIFT is the gold standard for accuracy, ORB is lightning-fast, AKAZE
+balances both, and BRISK uses binary descriptors for speed.
+
+This is used everywhere: panorama stitching, AR apps, 3D reconstruction, object tracking...
 """
 
 import cv2
@@ -9,7 +18,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def create_test_images():
-    """Create two test images with geometric shapes for feature detection"""
+    """
+    Create two test images to demonstrate feature matching
+    
+    The second image is a rotated and scaled version of the first. This is perfect
+    for testing because if our feature detector is truly scale and rotation invariant,
+    it should find matching features between these images despite the transformation.
+    
+    In real applications, these might be two photos of the same scene from different
+    angles, or consecutive frames in a video.
+    """
     # Image 1 - Original
     img1 = np.ones((400, 600, 3), dtype=np.uint8) * 255
     
@@ -31,9 +49,17 @@ def create_test_images():
 
 def detect_and_compute_sift(img):
     """
-    SIFT (Scale-Invariant Feature Transform) detection
-    - Excellent for scale and rotation invariance
-    - Patented algorithm (free for research)
+    SIFT (Scale-Invariant Feature Transform) - The Classic
+    
+    SIFT was revolutionary when it came out (1999)! It finds features that remain
+    stable across different scales, rotations, and lighting conditions. The key
+    innovation was building a scale-space pyramid and finding local extrema.
+    
+    Pros: Excellent accuracy and invariance
+    Cons: Patented (though now expired), slower than modern alternatives
+    
+    Use when: Accuracy matters more than speed, or when dealing with significant
+    scale/rotation changes between images.
     """
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     
@@ -47,9 +73,17 @@ def detect_and_compute_sift(img):
 
 def detect_and_compute_orb(img):
     """
-    ORB (Oriented FAST and Rotated BRIEF) detection
-    - Fast and free alternative to SIFT
-    - Good for real-time applications
+    ORB (Oriented FAST and Rotated BRIEF) - The Speed Demon
+    
+    ORB was designed as a free, fast alternative to SIFT and SURF. It combines
+    FAST keypoint detection with BRIEF descriptors, adding orientation computation
+    to make it rotation-invariant.
+    
+    Pros: Very fast, no patents, good enough for real-time applications
+    Cons: Less accurate than SIFT, binary descriptors are less distinctive
+    
+    Use when: Speed matters (mobile apps, real-time tracking), or when you want
+    a patent-free solution that's good enough for most tasks.
     """
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     
@@ -63,9 +97,17 @@ def detect_and_compute_orb(img):
 
 def detect_and_compute_akaze(img):
     """
-    AKAZE (Accelerated-KAZE) detection
-    - Fast nonlinear scale space
-    - Good balance between speed and accuracy
+    AKAZE (Accelerated-KAZE) - The Balanced Approach
+    
+    AKAZE uses nonlinear diffusion filtering to build scale space, which better
+    preserves boundaries compared to Gaussian pyramids. It's faster than KAZE
+    while maintaining good quality.
+    
+    Pros: Good balance of speed and accuracy, better edge localization
+    Cons: Slower than ORB, not as widely adopted as SIFT
+    
+    Use when: You need better accuracy than ORB but faster than SIFT, especially
+    when precise edge localization matters.
     """
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     

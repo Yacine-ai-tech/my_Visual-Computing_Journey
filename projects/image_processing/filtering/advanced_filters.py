@@ -1,6 +1,18 @@
 """
 Advanced Image Filtering and Enhancement
-Comprehensive collection of filtering techniques for image quality improvement
+
+Filtering was one of my favorite topics to explore! It's all about the trade-off
+between removing noise and preserving important details like edges. Different
+filters excel in different situations, and understanding when to use which is key.
+
+I learned that:
+- Gaussian blur is fast but blurs everything (including edges)
+- Bilateral filter preserves edges while smoothing (but slower)
+- Median filter is perfect for salt-and-pepper noise
+- Non-local means looks at the entire image for similar patches (slow but amazing quality)
+
+These techniques are fundamental to preprocessing in machine learning, medical imaging,
+photography, and pretty much any application that works with images.
 """
 
 import cv2
@@ -9,7 +21,18 @@ import matplotlib.pyplot as plt
 from scipy import ndimage
 
 def create_test_image_with_noise():
-    """Create test image with various types of noise"""
+    """
+    Create a test image with realistic noise
+    
+    Real-world images are always noisy! Sensor noise, compression artifacts,
+    transmission errors - there are so many sources. I'm adding two types here:
+    
+    1. Gaussian noise - simulates sensor noise from cameras
+    2. Salt and pepper - simulates transmission errors or dead pixels
+    
+    Testing on noisy data helps us understand which filters work best for
+    which types of noise. This is critical knowledge for real applications!
+    """
     # Create base image with shapes
     img = np.ones((400, 600, 3), dtype=np.uint8) * 128
     
@@ -38,8 +61,16 @@ def create_test_image_with_noise():
 
 def gaussian_filtering(img):
     """
-    Gaussian blur - removes Gaussian noise
-    Good for: Smoothing, noise reduction
+    Gaussian Blur - The Go-To for General Smoothing
+    
+    This is probably the most commonly used filter! It applies a Gaussian function
+    to weight nearby pixels, creating smooth transitions. The larger the kernel,
+    the more blurring you get.
+    
+    The catch? It blurs EVERYTHING - edges, textures, details. So it's great when
+    you just need general smoothing, but not when you need to preserve structure.
+    
+    I often use this as a preprocessing step before edge detection to reduce noise.
     """
     results = {}
     
@@ -52,8 +83,17 @@ def gaussian_filtering(img):
 
 def bilateral_filtering(img):
     """
-    Bilateral filter - edge-preserving smoothing
-    Good for: Noise reduction while preserving edges
+    Bilateral Filter - Edge-Preserving Magic!
+    
+    This is where it gets cool! Bilateral filter smooths the image while preserving
+    edges. How? It considers both spatial distance AND color similarity. Pixels are
+    weighted not just by how close they are, but also by how similar their colors are.
+    
+    This means: smooth within regions, sharp at edges.
+    
+    It's more computationally expensive than Gaussian blur, but the results are worth
+    it when edge preservation matters - think portrait photography, medical imaging,
+    or any preprocessing where you need clean images with sharp boundaries.
     """
     results = {}
     
@@ -72,8 +112,18 @@ def bilateral_filtering(img):
 
 def median_filtering(img):
     """
-    Median filter - excellent for salt and pepper noise
-    Good for: Removing impulse noise
+    Median Filter - The Salt-and-Pepper Specialist
+    
+    Here's a fun fact I learned: median filter is actually BETTER than mean filter
+    for certain types of noise! Instead of averaging pixels (which spreads noise),
+    it takes the median value. This completely eliminates isolated noise pixels
+    (like salt and pepper) while preserving edges.
+    
+    Why? Because outliers don't affect the median as much as the mean.
+    
+    I use this when dealing with impulse noise, scanning artifacts, or dead pixels.
+    It's also non-linear, which makes it interesting - you can't achieve the same
+    effect by convolving with a kernel!
     """
     results = {}
     

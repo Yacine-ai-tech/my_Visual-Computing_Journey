@@ -1,6 +1,17 @@
 """
-YOLO Object Detection Implementation
-Demonstrates YOLO-style object detection with custom implementation and visualization
+YOLO Object Detection - Built from Scratch to Understand How It Works
+
+I implemented this to truly understand YOLO's revolutionary approach to object detection.
+Instead of using sliding windows or region proposals, YOLO looks at the entire image once
+and predicts bounding boxes and class probabilities directly. This makes it incredibly fast!
+
+This is an educational implementation that demonstrates the core concepts:
+- Grid-based detection (dividing images into cells)
+- Multiple bounding box predictions per cell
+- Non-maximum suppression to filter duplicates
+- Confidence scoring that combines objectness and localization
+
+For production use, check out production_yolo.py which uses Ultralytics YOLOv8.
 """
 
 import cv2
@@ -10,18 +21,28 @@ from typing import List, Tuple, Dict
 
 class YOLODetector:
     """
-    Simplified YOLO-style object detector
-    Demonstrates grid-based detection approach used in YOLO
+    A simplified YOLO-style object detector built from scratch
+    
+    YOLO's key insight: treat object detection as a regression problem!
+    Instead of sliding windows over the image, we divide it into a grid and
+    let each grid cell predict bounding boxes for objects whose center falls in that cell.
+    
+    This approach is what makes YOLO so fast - single forward pass through the network.
     """
     
     def __init__(self, grid_size=7, num_boxes=2, num_classes=3):
         """
-        Initialize YOLO detector
+        Initialize the YOLO detector with grid configuration
+        
+        The grid_size is crucial - YOLO divides the image into SxS cells.
+        Original YOLO used 7x7, but you can experiment! Larger grids can detect
+        smaller objects but are slower. Each cell predicts multiple bounding boxes
+        (num_boxes) to handle overlapping objects.
         
         Args:
-            grid_size: Size of detection grid (e.g., 7x7)
-            num_boxes: Number of bounding boxes per grid cell
-            num_classes: Number of object classes to detect
+            grid_size: How many cells to divide the image into (e.g., 7 means 7x7 = 49 cells)
+            num_boxes: How many bounding boxes each cell should predict (usually 2)
+            num_classes: Number of object categories we want to detect
         """
         self.grid_size = grid_size
         self.num_boxes = num_boxes
@@ -30,7 +51,14 @@ class YOLODetector:
         self.nms_threshold = 0.4
         
     def create_grid_representation(self, img_shape):
-        """Create grid overlay on image"""
+        """
+        Visualize the grid overlay on the image
+        
+        This helps understand how YOLO divides up the image. Each cell is responsible
+        for detecting objects whose center falls within that cell. This is why YOLO
+        struggles with small, clustered objects - multiple objects might fall in the
+        same cell, but each cell only predicts a fixed number of boxes.
+        """
         h, w = img_shape[:2]
         cell_h = h // self.grid_size
         cell_w = w // self.grid_size
@@ -50,8 +78,16 @@ class YOLODetector:
     
     def detect_objects_simple(self, img):
         """
-        Simple object detection using color and contours
-        Simulates YOLO's detection approach
+        Simplified object detection using color and contours
+        
+        In a real YOLO implementation, this would be a deep neural network!
+        But for educational purposes, I'm using color detection to simulate
+        how the network would identify objects. The important part is understanding
+        the grid-based approach and how predictions are made per cell.
+        
+        The real magic of YOLO is in the neural network architecture and training,
+        but the detection pipeline and NMS logic shown here are exactly what's used
+        in production YOLO models.
         """
         h, w = img.shape[:2]
         cell_h = h // self.grid_size
@@ -136,7 +172,20 @@ class YOLODetector:
     
     def non_max_suppression(self, detections):
         """
-        Apply Non-Maximum Suppression to remove duplicate detections
+        Apply Non-Maximum Suppression - crucial for any object detector!
+        
+        When we detect objects, we often get multiple overlapping bounding boxes
+        for the same object. NMS solves this by keeping only the highest-confidence
+        detection and suppressing (removing) nearby boxes that likely represent
+        the same object.
+        
+        The algorithm:
+        1. Sort all detections by confidence
+        2. Take the highest confidence detection and keep it
+        3. Remove all other detections that overlap significantly (high IOU)
+        4. Repeat with remaining detections
+        
+        This is used in YOLO, Faster R-CNN, and pretty much every modern detector!
         """
         if len(detections) == 0:
             return []
@@ -175,7 +224,19 @@ class YOLODetector:
         return final_detections
     
     def calculate_iou(self, box1, box2):
-        """Calculate Intersection over Union"""
+        """
+        Calculate Intersection over Union (IOU) - fundamental metric in object detection
+        
+        IOU measures how much two bounding boxes overlap. It's the ratio of:
+        - Intersection area (where boxes overlap)
+        - Union area (total area covered by both boxes)
+        
+        IOU = 1.0 means perfect overlap (same box)
+        IOU = 0.0 means no overlap at all
+        IOU > 0.5 typically means the boxes represent the same object
+        
+        This metric is used everywhere: NMS, evaluation (mAP), anchor matching in training...
+        """
         x1, y1, w1, h1 = box1
         x2, y2, w2, h2 = box2
         
@@ -237,7 +298,14 @@ class YOLODetector:
 
 
 def create_test_image_with_objects():
-    """Create test image with multiple colored objects"""
+    """
+    Create a synthetic test image with colored objects
+    
+    I'm generating synthetic data here so anyone can run this code immediately
+    without needing to download datasets. In real applications, you'd use
+    actual images, but this approach is perfect for learning and demonstrating
+    the algorithm's behavior.
+    """
     img = np.ones((448, 448, 3), dtype=np.uint8) * 220
     
     # Add gradient background
