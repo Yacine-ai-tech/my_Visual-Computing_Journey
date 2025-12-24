@@ -44,8 +44,6 @@ I tested these on rotated/scaled images to verify they actually work! Some obser
 
 ## 🚀 Quick Start
 
-## 🚀 Quick Start
-
 ```bash
 python feature_detector.py
 ```
@@ -94,10 +92,6 @@ My implementation uses a robust matching pipeline:
 4. **RANSAC**: Filter outliers using geometric constraints
 
 This multi-stage approach gives much better results than naive matching!
-
-## 🌍 Real-World Applications
-
-I've seen these techniques used in:
 
 ## 🌍 Real-World Applications
 
